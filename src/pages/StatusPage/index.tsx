@@ -1,6 +1,6 @@
 /* eslint-disable import/no-duplicates */
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { parseISO, formatRelative } from 'date-fns';
@@ -61,6 +61,7 @@ const StatusPage: React.FC = () => {
         });
         setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         setErrorMessage('Falha ao buscar os dados, verefique se a URL existe');
       }
     }
@@ -70,45 +71,51 @@ const StatusPage: React.FC = () => {
   return (
     <Container>
       <Header>Estatísticas</Header>
-      {errorMessage ? (
-        <StatsContainer className="text-center">
-          <FontAwesomeIcon
-            size="3x"
-            color="#f8d7da"
-            icon="exclamation-triangle"
-          />
-          <p className="m-3">{errorMessage}</p>
-          <Link to="/" className="btn btn-primary">
-            Encurtar nova URL
-          </Link>
-        </StatsContainer>
+      {isLoading ? (
+        <Spinner animation="border" className="mx-auto" />
       ) : (
-        <StatsContainer className="text-center">
-          <p>
-            <b>
-              https://pitu.tk/
-              {shortenedURL?.code}
-            </b>
-          </p>
-          <p>
-            Redireciona para:
-            <br />
-            {shortenedURL?.url}
-          </p>
-          <StatsRow>
-            <StatsBox>
-              <b>{shortenedURL?.hits}</b>
-              <StatsBoxTitle>Visitas</StatsBoxTitle>
-            </StatsBox>
-            <StatsBox>
-              <b>{shortenedURL?.relativeDate}</b>
-              <StatsBoxTitle>Última visita</StatsBoxTitle>
-            </StatsBox>
-          </StatsRow>
-          <Link to="/" className="btn btn-primary">
-            Encurtar nova URL
-          </Link>
-        </StatsContainer>
+        <>
+          {errorMessage ? (
+            <StatsContainer className="text-center">
+              <FontAwesomeIcon
+                size="3x"
+                color="#f8d7da"
+                icon="exclamation-triangle"
+              />
+              <p className="m-3">{errorMessage}</p>
+              <Link to="/" className="btn btn-primary">
+                Encurtar nova URL
+              </Link>
+            </StatsContainer>
+          ) : (
+            <StatsContainer className="text-center">
+              <p>
+                <b>
+                  https://pitu.tk/
+                  {shortenedURL?.code}
+                </b>
+              </p>
+              <p>
+                Redireciona para:
+                <br />
+                {shortenedURL?.url}
+              </p>
+              <StatsRow>
+                <StatsBox>
+                  <b>{shortenedURL?.hits}</b>
+                  <StatsBoxTitle>Visitas</StatsBoxTitle>
+                </StatsBox>
+                <StatsBox>
+                  <b>{shortenedURL?.relativeDate}</b>
+                  <StatsBoxTitle>Última visita</StatsBoxTitle>
+                </StatsBox>
+              </StatsRow>
+              <Link to="/" className="btn btn-primary">
+                Encurtar nova URL
+              </Link>
+            </StatsContainer>
+          )}
+        </>
       )}
     </Container>
   );

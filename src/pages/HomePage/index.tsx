@@ -12,7 +12,7 @@ import {
 import Header from '../../components/Header';
 import ShortenerService from '../../services/shortenerService';
 
-import { ContentContainer, Form, Button } from './styles';
+import { ContentContainer, Form, Button, AdsBlock } from './styles';
 
 const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -103,6 +103,9 @@ const HomePage: React.FC = () => {
           )}
           {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
         </Form>
+      </ContentContainer>
+      <ContentContainer>
+        <AdsBlock>Adense ou não kkk</AdsBlock>
       </ContentContainer>
     </Container>
   );
