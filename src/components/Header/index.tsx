@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import icon from '../../assets/icon.png';
+import icon from '../../assets/pitu.svg';
 
 import { Logo, HeaderContainer } from './styles';
 
