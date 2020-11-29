@@ -8,6 +8,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 import Header from '../../components/Header';
 import ShortenerService from '../../services/shortenerService';
+import vars from '../../config/vars';
 
 import { StatsContainer, StatsRow, StatsBox, StatsBoxTitle } from './styles';
 
@@ -90,10 +91,7 @@ const StatusPage: React.FC = () => {
           ) : (
             <StatsContainer className="text-center">
               <p>
-                <b>
-                  https://pitu.tk/
-                  {shortenedURL?.code}
-                </b>
+                <b>{vars.HOST_APP! + shortenedURL?.code}</b>
               </p>
               <p>
                 Redireciona para:

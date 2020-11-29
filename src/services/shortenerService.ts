@@ -5,7 +5,7 @@ class ShortenerService {
   api: AxiosInstance;
 
   constructor() {
-    this.api = baseApi('http://localhost:3333/');
+    this.api = baseApi(process.env.REACT_APP_API as string);
   }
 
   async getLink(code: string): Promise<any> {

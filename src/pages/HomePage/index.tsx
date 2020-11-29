@@ -11,6 +11,7 @@ import {
 
 import Header from '../../components/Header';
 import ShortenerService from '../../services/shortenerService';
+import vars from '../../config/vars';
 
 import { ContentContainer, Form, Button, AdsBlock } from './styles';
 
@@ -81,7 +82,7 @@ const HomePage: React.FC = () => {
                 <InputGroup className="mb-3">
                   <FormControl
                     autoFocus
-                    defaultValue={`https://pitu.tk/${code}`}
+                    defaultValue={vars.HOST_APP + code}
                     ref={inputRef}
                   />
                   <InputGroup.Append>
@@ -95,8 +96,10 @@ const HomePage: React.FC = () => {
                   </InputGroup.Append>
                 </InputGroup>
                 <p>
-                  Para acompanhar as estatisticas acesse https://pitu.tk/
-                  {code}
+                  Para acompanhar as estatisticas acesse
+                  <br />
+                  {vars.HOST_APP + code}
+                  /status
                 </p>
               </>
             )
