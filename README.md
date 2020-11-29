@@ -12,9 +12,9 @@ Repositório do BackEnd no GitHub [GITHUB](https://github.com/AmauriOliveira/pit
 
 > Front End do SaaS PUTU
 
-![GitHub last commit](https://img.shields.io/github/last-commit/pitu-SaaS-FrontEnd/pitu-SaaS-FrontEnd)
-![license](https://img.shields.io/github/license/pitu-SaaS-FrontEnd/pitu-SaaS-FrontEnd)
-![GitHub repo size](https://img.shields.io/github/repo-size/pitu-SaaS-FrontEnd/pitu-SaaS-FrontEnd)
+![GitHub last commit](https://img.shields.io/github/last-commit/AmauriOliveira/pitu-SaaS-FrontEnd)
+![license](https://img.shields.io/github/license/AmauriOliveira/pitu-SaaS-FrontEnd)
+![GitHub repo size](https://img.shields.io/github/repo-size/AmauriOliveira/pitu-SaaS-FrontEnd)
 
 ## :telescope: Overview
 
